@@ -1,4 +1,8 @@
 # Library-Management-System
-With SpingBoot
-H2 Data Basse
-CRUD OPERATION :Books ,Patron Borrowings
+building a Library-Management-System that may Demo of SpringBoot 
+## Requirements
+● Implement RESTful endpoints to handle the following operations:
+● Book management endpoints
+● Patron management endpoints
+● Borrowing endpoints 
+
