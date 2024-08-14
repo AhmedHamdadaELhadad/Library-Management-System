@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/borrow")
+@RequestMapping("/api")
 public class BorrowingRecordController {
 
     private final BorrowingRecordService borrowingRecordService;
@@ -20,7 +20,7 @@ public class BorrowingRecordController {
     }
 
 
-    @PostMapping("/{bookId}/patron/{patronId}")
+    @PostMapping("/borrow/{bookId}/patron/{patronId}")
     public ResponseEntity<BorrowingRecord> borrowBook(@PathVariable Long bookId, @PathVariable Long patronId) {
         BorrowingRecord borrowingRecord = borrowingRecordService.borrowBook(bookId, patronId);
         return ResponseEntity.ok(borrowingRecord);
@@ -28,13 +28,13 @@ public class BorrowingRecordController {
     }
 
 
-/*
+
     @PutMapping("/return/{bookId}/patron/{patronId}")
     public ResponseEntity<BorrowingRecord> returnBook(@PathVariable Long bookId, @PathVariable Long patronId) {
         BorrowingRecord borrowingRecord = borrowingRecordService.returnBook(bookId, patronId);
         return ResponseEntity.ok(borrowingRecord);
 
 }
-*/
+
 
 }

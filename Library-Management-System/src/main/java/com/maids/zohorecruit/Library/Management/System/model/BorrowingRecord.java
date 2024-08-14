@@ -38,10 +38,11 @@ public class BorrowingRecord {
     private LocalDate returnDate;
 
 
-    public BorrowingRecord(Book book, Patron patron, LocalDate now) {
+    public BorrowingRecord(Book book, Patron patron, LocalDate borrowDate) {
         this.book = book;
         this.patron = patron;
         this.borrowDate = borrowDate;
-        this.returnDate = borrowDate.plusDays(10);
+        this.returnDate = borrowDate.plusDays(5);
     }
+
 }

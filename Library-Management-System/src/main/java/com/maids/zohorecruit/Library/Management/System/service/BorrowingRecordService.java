@@ -7,6 +7,7 @@ import com.maids.zohorecruit.Library.Management.System.Repositories.PatronReposi
 import com.maids.zohorecruit.Library.Management.System.model.Book;
 import com.maids.zohorecruit.Library.Management.System.model.BorrowingRecord;
 import com.maids.zohorecruit.Library.Management.System.model.Patron;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,7 +35,7 @@ public class BorrowingRecordService {
         this.patronRepository = patronRepository;
     }
 
-
+    @Transactional
     public BorrowingRecord borrowBook(Long bookId, Long patronId) {
         Optional<Book> book = bookRepository.findById(bookId);
         Optional<Patron> patron = patronRepository.findById(patronId);
@@ -49,23 +50,23 @@ public class BorrowingRecordService {
         }
     }
 
+    @Transactional
+    public BorrowingRecord returnBook(Long bookId, Long patronId) {
+        Optional<BorrowingRecord> borrowingRecord = borrowingRepository.findByBookIdAndPatronIdAndReturnDateIsNotNull(bookId, patronId);
+
+        if ( borrowingRecord.isPresent()) {
+            BorrowingRecord record = borrowingRecord.get();
+            record.setBorrowDate(LocalDate.now());
+            LocalDate returnDate = LocalDate.now().plusDays(10);
+            record.setReturnDate(returnDate);  // Set the return date to the current date
+            return borrowingRepository.save(record);
+
+        } else {
+            throw new ResourceNotFoundException("No active borrowing record found for this book and patron");
+        }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 
 
 }
