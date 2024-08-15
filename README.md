@@ -14,6 +14,7 @@ WITH Validation and Error Handling,Transaction Management
 - Lombok
 - SQL(H2)
 - Maven
+
 ## Installation
   1. Clone the repository:
    git clone https://github.com/AhmedHamdadaELhadad/Library-Management-System.git
@@ -98,4 +99,33 @@ The application runs on `http://localhost:8080`.
 
 - **JDBC URL:** `jdbc:h2:mem:lms
 - **Username:** `sa`
-- **Password:** 
+- **Password:**
+
+
+## Entity-Relationship Diagram
+
+```mermaid
+erDiagram
+    Books {
+        SERIAL id PK
+        VARCHAR title
+        VARCHAR author
+        INTEGER publicationYear
+        VARCHAR isbn "UNIQUE"
+    }
+    Patron {
+        SERIAL id PK
+        VARCHAR name
+        VARCHAR contactInfo "UNIQUE"
+    }
+    BorrowingRecord {
+        SERIAL id PK
+        DATE borrowDate
+        DATE returnDate
+        INTEGER book_id FK
+        INTEGER patron_id FK
+    }
+
+    Books ||--o{ BorrowingRecord : borrows
+    Patron ||--o{ BorrowingRecord : borrows
+
