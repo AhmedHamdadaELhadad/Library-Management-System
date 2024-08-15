@@ -39,7 +39,8 @@ The application runs on `http://localhost:8080`.
 
 # API Endpoints:
 
-## Patron Books
+## Books Management
+- [![Run Books in Postman](https://run.pstmn.io/button.svg)](https://gold-flare-136526.postman.co/workspace/Team-Workspace~0995296d-00d7-473d-88f9-ff181e750100/folder/24469503-a1595cb2-50fb-434c-8ad6-461cb5e90f82?action=share&creator=24469503&ctx=documentation)
 - **Get all books:**
   - Method: `GET`
   - URL: `/api/books`
@@ -60,6 +61,7 @@ The application runs on `http://localhost:8080`.
   - Method: `DELETE`
   - URL: `/api/books/{id}`
 ## Patron Management
+- [![Run in Postman](https://run.pstmn.io/button.svg)](https://gold-flare-136526.postman.co/workspace/Team-Workspace~0995296d-00d7-473d-88f9-ff181e750100/folder/24469503-af1a9054-4ced-4691-9703-ed3cb4368af4?action=share&creator=24469503&ctx=documentation)
 
 - **Get all patrons:**
   - Method: `GET`
@@ -81,8 +83,8 @@ The application runs on `http://localhost:8080`.
   - Method: `DELETE`
   - URL: `/api/patrons/{id}`
 
-### Borrowing and Returning Books:
-
+### Borrowing Management :
+- [![Run in Postman](https://run.pstmn.io/button.svg)](https://gold-flare-136526.postman.co/workspace/Team-Workspace~0995296d-00d7-473d-88f9-ff181e750100/folder/24469503-68f0ffc7-26ab-4a9e-b2a2-9bc049cdb740?action=share&creator=24469503&ctx=documentation)
 - **Borrow a book:**
   - Method: `POST`
   - URL: `/api/borrow/{bookId}/patron/{patronId}`
